@@ -6,9 +6,17 @@
     "backwards-compatability/*",
     "metapackages/*",
     "packages/*",
+    "examples/*",
     "integration-tests/*"
   ],
   "version": "0.18.2",
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "example-*"
+      ]
+    }
+  },
   "changelog": {
     "repo": "open-telemetry/opentelemetry-js",
     "labels": {
