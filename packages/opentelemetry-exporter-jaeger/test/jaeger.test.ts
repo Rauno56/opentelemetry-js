@@ -67,15 +67,16 @@ describe('JaegerExporter', () => {
 
     it('should get service name from the the service name resource attribute of the first exported span', done => {
       const mockedEndpoint = 'http://testendpoint';
-      const scope =nock(mockedEndpoint)
+      const scope = nock(mockedEndpoint)
         .post('/')
         .reply(202);
 
       const exporter = new JaegerExporter({
         endpoint: mockedEndpoint,
       });
-      exporter.export([readableSpan], result => {
-        assert.strictEqual(result.code, ExportResultCode.SUCCESS);
+      exporter.export([readableSpan], ({ code, error }) => {
+        assert(!error, error);
+        assert.strictEqual(code, ExportResultCode.SUCCESS);
         assert.strictEqual(exporter['_sender']._batch.process.serviceName, 'opentelemetry');
         scope.done();
         done();
@@ -184,8 +185,9 @@ describe('JaegerExporter', () => {
     });
 
     it('should send spans to Jaeger backend and return with Success', () => {
-      exporter.export([readableSpan], (result: ExportResult) => {
-        assert.strictEqual(result.code, ExportResultCode.SUCCESS);
+      exporter.export([readableSpan], ({ code, error }: ExportResult) => {
+        assert(!error, error);
+        assert.strictEqual(code, ExportResultCode.SUCCESS);
       });
     });
 
