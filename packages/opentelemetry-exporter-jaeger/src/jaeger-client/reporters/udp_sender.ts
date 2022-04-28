@@ -11,9 +11,9 @@
 // or implied. See the License for the specific language governing permissions and limitations under
 // the License.
 
-import dgram from 'dgram';
-import fs from 'fs';
-import path from 'path';
+import * as dgram from 'dgram';
+import * as fs from 'fs';
+import * as path from 'path';
 import { Thrift } from 'thriftrw';
 import NullLogger from '../logger';
 import SenderUtils from './sender_utils';

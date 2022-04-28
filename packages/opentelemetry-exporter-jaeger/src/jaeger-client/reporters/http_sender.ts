@@ -11,16 +11,16 @@
 // or implied. See the License for the specific language governing permissions and limitations under
 // the License.
 
-import fs from 'fs';
-import http from 'http';
-import https from 'https';
-import path from 'path';
+import * as fs from 'fs';
+import * as http from 'http';
+import * as https from 'https';
+import * as path from 'path';
 import * as URL from 'url';
 import { Thrift } from 'thriftrw';
 
-import NullLogger from '../logger.js';
-import SenderUtils from './sender_utils.js';
-import ThriftUtils from '../thrift.js';
+import NullLogger from '../logger';
+import SenderUtils from './sender_utils';
+import ThriftUtils from '../thrift';
 
 const DEFAULT_PATH = '/api/traces';
 const DEFAULT_PORT = 14268;

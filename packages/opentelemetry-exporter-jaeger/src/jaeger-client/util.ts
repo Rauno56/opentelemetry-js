@@ -12,9 +12,9 @@
 // the License.
 
 import xorshift from 'xorshift';
-import Int64 from 'node-int64';
-import os from 'os';
-import http from 'http';
+import * as Int64 from 'node-int64';
+import * as os from 'os';
+import * as http from 'http';
 
 export default class Utils {
   /**

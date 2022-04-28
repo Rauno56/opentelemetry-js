@@ -11,11 +11,11 @@
 // or implied. See the License for the specific language governing permissions and limitations under
 // the License.
 
-import fs from 'fs';
+import * as fs from 'fs';
 import * as opentracing from 'opentracing';
-import path from 'path';
+import * as path from 'path';
 import { Thrift } from 'thriftrw';
-import Utils from './util.js';
+import Utils from './util';
 
 export default class ThriftUtils {
   static _thrift = new Thrift({

@@ -14,6 +14,11 @@
  * limitations under the License.
  */
 
+export { default as UDPSender } from './jaeger-client/reporters/udp_sender';
+export { default as Utils } from './jaeger-client/util';
+export { default as ThriftUtils } from './jaeger-client/thrift';
+export { default as HTTPSender } from './jaeger-client/reporters/http_sender';
+
 /**
  * Options for Jaeger configuration
  */
@@ -32,19 +37,6 @@ export interface ExporterConfig {
   //Password to send as part of "Basic" authentication to the collector endpoint
   password?: string;
 }
-
-// Below require is needed as jaeger-client types does not expose the thrift,
-// udp_sender, util etc. modules.
-
-/* eslint-disable @typescript-eslint/no-var-requires */
-export const UDPSender = require('jaeger-client/dist/src/reporters/udp_sender')
-  .default;
-export const Utils = require('jaeger-client/dist/src/util').default;
-export const ThriftUtils = require('jaeger-client/dist/src/thrift').default;
-
-export const HTTPSender = require('jaeger-client/dist/src/reporters/http_sender')
-  .default;
-/* eslint-enable @typescript-eslint/no-var-requires */
 
 export type TagValue = string | number | boolean;
 
